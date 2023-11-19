@@ -107,7 +107,7 @@ int sign(float value)
 	else
 		return -1;
 }
-//动力学各关节扭矩值
+//动力学各关节扭矩值（需要更改）
 float TAU[7] = {0};
 void compute_TAU(float *q, float *qd, float *qdd)
 {
