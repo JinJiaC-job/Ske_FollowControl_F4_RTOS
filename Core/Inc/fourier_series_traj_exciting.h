@@ -4,7 +4,7 @@
 #include "main.h"
 
 // PARAMETERS
-#define pi 3.1415f
+#define pi 3.141592654f
 //电机控制时间点
 extern unsigned int motor_control_k;
 //motor control interval time
@@ -33,7 +33,7 @@ extern float TAU[7];
 void fourier_series_traj(float time);
 void traj_exciting_init(void);
 void run_fourier_series_traj(void);
-void compute_TAU(float *q, float *qd, float *qdd);
+float compute_TAU(float *q, float *qd, float *qdd, int id);
 void compensation_ske_GF(void);
 void compensation_singleJoint_GF(int joint_id);
 

@@ -47,7 +47,7 @@
 /* USER CODE BEGIN PD */
 //#define EXCITE_TRAJ_EXPERI
 //#define wifi_test
-#define compensation_experi
+// #define compensation_experi
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -154,7 +154,7 @@ int main(void)
  	}
 	
 	//Õ‚π«˜¿≥ı ºŒª÷√	
-  ske_base_position();
+  // ske_base_position();
 	HAL_Delay(1000);
 #endif
 
@@ -203,8 +203,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		compensation_singleJoint_GF(5);
-//	 pressure_SensorReading();
+		// compensation_singleJoint_GF(5);
+  
+	 pressure_SensorReading();
 //	 printf("LinearActuator_Pressure0 = %.3fV \r\n", ADC_Pressure_Value[0]);
 //	 HAL_Delay(100);
 #ifdef EXCITE_TRAJ_EXPERI	
