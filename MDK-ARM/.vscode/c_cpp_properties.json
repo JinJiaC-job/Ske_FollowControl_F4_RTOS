@@ -8,12 +8,12 @@
                 "e:\\git_repo\\my_repo\\Ske_FollowControl_F4_RTOS\\Drivers\\STM32F4xx_HAL_Driver\\Inc\\Legacy",
                 "e:\\git_repo\\my_repo\\Ske_FollowControl_F4_RTOS\\Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include",
                 "e:\\git_repo\\my_repo\\Ske_FollowControl_F4_RTOS\\Drivers\\CMSIS\\Include",
-                "e:\\git_repo\\my_repo\\Ske_FollowControl_F4_RTOS\\Core\\Src",
                 "D:\\APPs\\Keil_v5\\ARM\\ARMCLANG\\include",
                 "D:\\APPs\\Keil_v5\\ARM\\ARMCLANG\\include\\arm_linux",
                 "D:\\APPs\\Keil_v5\\ARM\\ARMCLANG\\include\\arm_linux_compat",
                 "D:\\APPs\\Keil_v5\\ARM\\ARMCLANG\\include\\libcxx",
                 "e:\\git_repo\\my_repo\\Ske_FollowControl_F4_RTOS\\MDK-ARM",
+                "e:\\git_repo\\my_repo\\Ske_FollowControl_F4_RTOS\\Core\\Src",
                 "e:\\git_repo\\my_repo\\Ske_FollowControl_F4_RTOS\\Drivers\\STM32F4xx_HAL_Driver\\Src"
             ],
             "defines": [

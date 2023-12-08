@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\Core\Src</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -434,6 +434,31 @@
               <FileName>stm32f4xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_msp.c</FilePath>
+            </File>
+            <File>
+              <FileName>esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\esp8266.c</FilePath>
+            </File>
+            <File>
+              <FileName>fourier_series_traj_exciting.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\fourier_series_traj_exciting.c</FilePath>
+            </File>
+            <File>
+              <FileName>ids830can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ids830can.c</FilePath>
+            </File>
+            <File>
+              <FileName>lkmoto.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\lkmoto.c</FilePath>
+            </File>
+            <File>
+              <FileName>Sensors_reading.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\Sensors_reading.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -549,36 +574,6 @@
               <FileName>system_stm32f4xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/system_stm32f4xx.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>User_Drivers</GroupName>
-          <Files>
-            <File>
-              <FileName>fourier_series_traj_exciting.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\fourier_series_traj_exciting.c</FilePath>
-            </File>
-            <File>
-              <FileName>ids830can.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\ids830can.c</FilePath>
-            </File>
-            <File>
-              <FileName>lkmoto.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\lkmoto.c</FilePath>
-            </File>
-            <File>
-              <FileName>Sensors_reading.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\Sensors_reading.c</FilePath>
-            </File>
-            <File>
-              <FileName>esp8266.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\esp8266.c</FilePath>
             </File>
           </Files>
         </Group>

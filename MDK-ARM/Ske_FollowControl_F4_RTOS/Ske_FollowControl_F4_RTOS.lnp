@@ -8,6 +8,11 @@
 "ske_followcontrol_f4_rtos\usart.o"
 "ske_followcontrol_f4_rtos\stm32f4xx_it.o"
 "ske_followcontrol_f4_rtos\stm32f4xx_hal_msp.o"
+"ske_followcontrol_f4_rtos\esp8266.o"
+"ske_followcontrol_f4_rtos\fourier_series_traj_exciting.o"
+"ske_followcontrol_f4_rtos\ids830can.o"
+"ske_followcontrol_f4_rtos\lkmoto.o"
+"ske_followcontrol_f4_rtos\sensors_reading.o"
 "ske_followcontrol_f4_rtos\stm32f4xx_hal_adc.o"
 "ske_followcontrol_f4_rtos\stm32f4xx_hal_adc_ex.o"
 "ske_followcontrol_f4_rtos\stm32f4xx_ll_adc.o"
@@ -29,11 +34,6 @@
 "ske_followcontrol_f4_rtos\stm32f4xx_hal_tim_ex.o"
 "ske_followcontrol_f4_rtos\stm32f4xx_hal_uart.o"
 "ske_followcontrol_f4_rtos\system_stm32f4xx.o"
-"ske_followcontrol_f4_rtos\fourier_series_traj_exciting.o"
-"ske_followcontrol_f4_rtos\ids830can.o"
-"ske_followcontrol_f4_rtos\lkmoto.o"
-"ske_followcontrol_f4_rtos\sensors_reading.o"
-"ske_followcontrol_f4_rtos\esp8266.o"
 --library_type=microlib --strict --scatter "Ske_FollowControl_F4_RTOS\Ske_FollowControl_F4_RTOS.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
