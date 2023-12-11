@@ -47,7 +47,7 @@
 /* USER CODE BEGIN PD */
 //#define EXCITE_TRAJ_EXPERI
 //#define wifi_test
-// #define compensation_experi
+//#define compensation_experi
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -108,6 +108,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+  CAN_Filter_Init();
 #ifdef wifi_test
 	//WIFIÄ£¿é³õÊ¼»¯
 	HAL_UART_Receive_IT(&huart3, &temp_rx, 1);
@@ -193,6 +194,7 @@ int main(void)
 	HAL_TIM_Base_Start_IT(&htim2);
   printf("Exciting traj experiment start!!!\r\n");
 #endif
+  uint8_t testbuf[8] = {0x12, 0x23, 0x34, 0x45, 0x56, 0x67, 0x78, 0x89};
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -203,9 +205,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    // read_angle(2);
+    can_send(testbuf, 40);	
+    HAL_Delay(50);
 		// compensation_singleJoint_GF(5);
   
-	 pressure_SensorReading();
+	//  pressure_SensorReading();
 //	 printf("LinearActuator_Pressure0 = %.3fV \r\n", ADC_Pressure_Value[0]);
 //	 HAL_Delay(100);
 #ifdef EXCITE_TRAJ_EXPERI	
