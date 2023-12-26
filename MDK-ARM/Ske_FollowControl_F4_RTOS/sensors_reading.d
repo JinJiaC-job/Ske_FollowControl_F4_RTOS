@@ -37,4 +37,5 @@ ske_followcontrol_f4_rtos/sensors_reading.o: \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  ..\Core\Inc\Sensors_reading.h
+  ..\Core\Inc\Sensors_reading.h \
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h

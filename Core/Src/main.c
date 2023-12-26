@@ -27,9 +27,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "lkmoto.h"
-#include "can.h"
-#include "usart.h"
-#include "gpio.h"
 #include "stdio.h"
 #include "ids830can.h"
 #include "Sensors_reading.h"
@@ -194,7 +191,7 @@ int main(void)
 	HAL_TIM_Base_Start_IT(&htim2);
   printf("Exciting traj experiment start!!!\r\n");
 #endif
-  uint8_t testbuf[8] = {0x12, 0x23, 0x34, 0x45, 0x56, 0x67, 0x78, 0x89};
+  // uint8_t testbuf[8] = {0x12, 0x23, 0x34, 0x45, 0x56, 0x67, 0x78, 0x89};
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -206,13 +203,13 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     // read_angle(2);
-    can_send(testbuf, 40);	
-    HAL_Delay(50);
+    // can_send(testbuf, 40);	
+    // HAL_Delay(50);
 		// compensation_singleJoint_GF(5);
   
-	//  pressure_SensorReading();
-//	 printf("LinearActuator_Pressure0 = %.3fV \r\n", ADC_Pressure_Value[0]);
-//	 HAL_Delay(100);
+    pressure_SensorReading();
+    // printf("LinearActuator_Pressure0 = %.3fV \r\n", ADC_Pressure_Value[0]);
+    // HAL_Delay(100);
 #ifdef EXCITE_TRAJ_EXPERI	
 //		read_all_joint_message();
 //		for(int i=1; i<=6; i++)
