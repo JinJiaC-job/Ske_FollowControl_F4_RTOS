@@ -39,6 +39,7 @@ ske_followcontrol_f4_rtos/lkmoto.o: ..\Core\Src\lkmoto.c \
   ..\Core\Inc\can.h ..\Core\Inc\main.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
   ..\Core\Inc\ids830can.h ..\Core\Inc\tim.h \
-  ..\Core\Inc\Sensors_reading.h ..\Core\Inc\usart.h \
+  ..\Core\Inc\Sensors_reading.h ..\Core\Inc\adc.h \
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h ..\Core\Inc\usart.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h

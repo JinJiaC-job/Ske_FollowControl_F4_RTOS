@@ -1,5 +1,6 @@
 ske_followcontrol_f4_rtos/sensors_reading.o: \
-  ..\Core\Src\Sensors_reading.c ..\Core\Inc\adc.h ..\Core\Inc\main.h \
+  ..\Core\Src\Sensors_reading.c ..\Core\Inc\Sensors_reading.h \
+  ..\Core\Inc\adc.h ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -36,6 +37,6 @@ ske_followcontrol_f4_rtos/sensors_reading.o: \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  ..\Core\Inc\Sensors_reading.h \
-  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h ..\Core\Inc\tim.h \
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
+  ..\Core\Inc\ids830can.h ..\Core\Inc\can.h ..\Core\Inc\lkmoto.h

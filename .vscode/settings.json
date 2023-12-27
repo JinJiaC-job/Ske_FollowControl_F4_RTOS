@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "math.h": "c",
+        "sensors_reading.h": "c",
+        "stdio.h": "c"
+    }
+}

@@ -27,53 +27,28 @@ Project File Date:  12/26/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'D:\APPs\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Ske_FollowControl_F4_RTOS'
-../Core/Src/main.c(32): warning: In file included from...
-../Core/Inc\Sensors_reading.h(13): warning: typedef requires a name [-Wmissing-declarations]
-typedef struct ids830_PID;
-^~~~~~~
-../Core/Inc\Sensors_reading.h(18): error: must use 'struct' tag to refer to type 'ids830_PID'
-float ids830_compensation_PID_Cal(ids830_PID *pid, int32_t NowValue, int32_t AimValue);
-                                  ^
-                                  struct 
-1 warning and 1 error generated.
-compiling main.c...
-../Core/Src/lkmoto.c(9): warning: In file included from...
-../Core/Inc\Sensors_reading.h(13): warning: typedef requires a name [-Wmissing-declarations]
-typedef struct ids830_PID;
-^~~~~~~
-../Core/Inc\Sensors_reading.h(18): error: must use 'struct' tag to refer to type 'ids830_PID'
-float ids830_compensation_PID_Cal(ids830_PID *pid, int32_t NowValue, int32_t AimValue);
-                                  ^
-                                  struct 
-../Core/Src/lkmoto.c(1198): warning: format specifies type 'double' but the argument has type 'float *' [-Wformat]
-        , LinAcr_position_float, LinAcr_current_float, LinAcr_speed_float, ADC_Pressure_Value, motor_current_float[2], motor_speed_float[2], motorAngle_float[2]
-                                                                           ^~~~~~~~~~~~~~~~~~
-2 warnings and 1 error generated.
-compiling lkmoto.c...
-../Core/Src/fourier_series_traj_exciting.c(8): warning: In file included from...
-../Core/Inc\Sensors_reading.h(13): warning: typedef requires a name [-Wmissing-declarations]
-typedef struct ids830_PID;
-^~~~~~~
-../Core/Inc\Sensors_reading.h(18): error: must use 'struct' tag to refer to type 'ids830_PID'
-float ids830_compensation_PID_Cal(ids830_PID *pid, int32_t NowValue, int32_t AimValue);
-                                  ^
-                                  struct 
-../Core/Src/fourier_series_traj_exciting.c(351): warning: format specifies type 'double' but the argument has type 'float *' [-Wformat]
-                , LinAcr_position_float, LinAcr_current_float, LinAcr_speed_float, ADC_Pressure_Value
-                                                                                   ^~~~~~~~~~~~~~~~~~
-2 warnings and 1 error generated.
-compiling fourier_series_traj_exciting.c...
-../Core/Src/Sensors_reading.c(3): warning: In file included from...
-../Core/Inc\Sensors_reading.h(13): warning: typedef requires a name [-Wmissing-declarations]
-typedef struct ids830_PID;
-^~~~~~~
-../Core/Inc\Sensors_reading.h(18): error: must use 'struct' tag to refer to type 'ids830_PID'
-float ids830_compensation_PID_Cal(ids830_PID *pid, int32_t NowValue, int32_t AimValue);
-                                  ^
-                                  struct 
-1 warning and 1 error generated.
+../Core/Src/Sensors_reading.c(224): warning: using floating point absolute value function 'fabs' when argument is of integer type [-Wabsolute-value]
+                LinearActuator_startRun_maxspeed_position(1, -2+current_position, 5*fabs(-5)/0.05);
+                                                                                    ^
+../Core/Src/Sensors_reading.c(224): note: use function 'abs' instead
+                LinearActuator_startRun_maxspeed_position(1, -2+current_position, 5*fabs(-5)/0.05);
+                                                                                    ^~~~
+                                                                                    abs
+../Core/Src/Sensors_reading.c(224): note: include the header <stdlib.h> or explicitly provide a declaration for 'abs'
+../Core/Src/Sensors_reading.c(241): warning: using floating point absolute value function 'fabs' when argument is of integer type [-Wabsolute-value]
+                LinearActuator_startRun_maxspeed_position(1, 1+current_position, 5*fabs(5)/0.05);
+                                                                                   ^
+../Core/Src/Sensors_reading.c(241): note: use function 'abs' instead
+                LinearActuator_startRun_maxspeed_position(1, 1+current_position, 5*fabs(5)/0.05);
+                                                                                   ^~~~
+                                                                                   abs
+../Core/Src/Sensors_reading.c(241): note: include the header <stdlib.h> or explicitly provide a declaration for 'abs'
+2 warnings generated.
 compiling Sensors_reading.c...
-"Ske_FollowControl_F4_RTOS\Ske_FollowControl_F4_RTOS.axf" - 4 Error(s), 6 Warning(s).
+linking...
+Program Size: Code=26456 RO-data=1164 RW-data=304 ZI-data=2840  
+FromELF: creating hex file...
+"Ske_FollowControl_F4_RTOS\Ske_FollowControl_F4_RTOS.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -97,7 +72,6 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
-Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

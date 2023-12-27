@@ -41,4 +41,4 @@ ske_followcontrol_f4_rtos/fourier_series_traj_exciting.o: \
   ..\Core\Inc\lkmoto.h ..\Core\Inc\can.h ..\Core\Inc\ids830can.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
   ..\Core\Inc\fourier_series_traj_exciting.h ..\Core\Inc\tim.h \
-  ..\Core\Inc\Sensors_reading.h
+  ..\Core\Inc\Sensors_reading.h ..\Core\Inc\adc.h

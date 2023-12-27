@@ -42,5 +42,6 @@ ske_followcontrol_f4_rtos/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
   ..\Core\Inc\gpio.h ..\Core\Inc\lkmoto.h ..\Core\Inc\ids830can.h \
   ..\Core\Inc\Sensors_reading.h \
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
   ..\Core\Inc\fourier_series_traj_exciting.h ..\Core\Inc\esp8266.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h
