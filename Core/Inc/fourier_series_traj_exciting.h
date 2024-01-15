@@ -36,6 +36,7 @@ void run_fourier_series_traj(void);
 float compute_TAU(float *q, float *qd, float *qdd, int id);
 void compensation_ske_GF(void);
 void compensation_singleJoint_GF(int joint_id);
+void compensation_singleJoint_GF_angle(int joint_id);
 
 //math function
 int sign(float value);

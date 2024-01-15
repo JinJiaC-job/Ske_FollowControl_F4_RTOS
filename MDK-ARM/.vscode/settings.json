@@ -1,5 +1,9 @@
 {
     "files.associations": {
-        "fourier_series_traj_exciting.h": "c"
+        "fourier_series_traj_exciting.h": "c",
+        "usart.h": "c",
+        "esp8266.h": "c",
+        "can.h": "c",
+        "protocol.h": "c"
     }
 }

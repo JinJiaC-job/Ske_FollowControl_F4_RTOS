@@ -1,8 +1,5 @@
-ske_followcontrol_f4_rtos/can.o: ..\Core\Src\can.c ..\Core\Inc\can.h \
-  ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
-  ..\Core\Inc\stm32f4xx_hal_conf.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h \
+ske_followcontrol_f4_rtos/protocol.o: ..\Core\Src\protocol.c \
+  ..\Core\Inc\protocol.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h \
   ..\Drivers\CMSIS\Include\core_cm4.h \
@@ -14,6 +11,10 @@ ske_followcontrol_f4_rtos/can.o: ..\Core\Src\can.c ..\Core\Inc\can.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
+  ..\Core\Inc\stm32f4xx_hal_conf.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h \
@@ -35,9 +36,8 @@ ske_followcontrol_f4_rtos/can.o: ..\Core\Src\can.c ..\Core\Inc\can.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\usart.h \
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  ..\Core\Inc\usart.h ..\Core\Inc\main.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
-  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h ..\Core\Inc\tim.h \
-  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  ..\Core\Inc\lkmoto.h ..\Core\Inc\ids830can.h ..\Core\Inc\esp8266.h
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h ..\Core\Inc\tim.h \
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h

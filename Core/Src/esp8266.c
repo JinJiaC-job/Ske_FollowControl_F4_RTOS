@@ -1,6 +1,17 @@
 #include "esp8266.h"
 #include "tim.h"
 #include "usart.h"
+#include "lkmoto.h"
+
+uint8_t wifisendbuf[6][24] = {0};
+
+
+void read_handskeleton()
+{
+    uint8_t buf[LEN] = {0x52, 0x45, 0x41, 0x44, 0x00, 0x00, 0x00, 0x00};//READ:
+    can_send(buf, 40);
+	Delay_ms(10);
+}
 
 
 /*
@@ -66,7 +77,7 @@ uint8_t atk_8266_send_data(uint8_t *data, uint8_t *ack, uint16_t waittime)
 			{
 				if(esp8266_check_cmd(ack))break;//得到有效数据 
 				USART3_RX_STA=0;
-			} 
+			}
 		}
 		if(waittime==0)
 			res=1; 

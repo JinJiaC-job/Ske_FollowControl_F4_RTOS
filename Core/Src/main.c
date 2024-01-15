@@ -32,6 +32,7 @@
 #include "Sensors_reading.h"
 #include "fourier_series_traj_exciting.h"
 #include "esp8266.h"
+#include "protocol.h"
 
 /* USER CODE END Includes */
 
@@ -43,8 +44,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 //#define EXCITE_TRAJ_EXPERI
-//#define wifi_test
-//#define compensation_experi
+// #define wifi_test
+#define compensation_experi
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -106,22 +107,37 @@ int main(void)
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   CAN_Filter_Init();
+  protocol_init();
 #ifdef wifi_test
 	//WIFI模块初始化
-	HAL_UART_Receive_IT(&huart3, &temp_rx, 1);
+	// HAL_UART_Receive_IT(&huart3, &temp_rx, 1);
+  __HAL_UART_ENABLE_IT(&huart3,UART_IT_RXNE); 
 	HAL_TIM_Base_Start_IT(&htim4);
   
-	if(esp8266_server_config())
-	{
-		printf("WIFI模块服务器配置失败！\r\n");
-	}
-  
-	HAL_Delay(10000);
-	
-	while(1){
-	HAL_Delay(1000);
-	esp8266_send_cmd("AT+CIPSEND=0,20","OK",200);  //发送指定长度的数据
-	u3_printf("This is a message\r\n");
+	// if(esp8266_server_config())
+	// {
+	// 	printf("WIFI模块服务器配置失败！\r\n");
+	// }
+  uint8_t testbuf[8] = {0};
+
+  // read_handskeleton();
+
+	while(1)
+  {
+    // for(int i=0; i<8; i++)
+    // {
+    //   testbuf[i] = i;
+    // }
+    // can_send(testbuf, 40);	
+    read_handskeleton();
+    Delay_ms(50);
+
+    for(int i=0; i<6; i++)
+    {
+      set_computer_value(SEND_MESSAGE_CMD, i, wifisendbuf[i], 24);
+      printf("wireless data%d send\r\n", i);
+      Delay_ms(50);
+    }
 	}
 	
 //	USART3_RX_STA=0;
@@ -144,7 +160,7 @@ int main(void)
 #endif
 
 #ifdef compensation_experi
-	CAN_Filter_Init();
+	// CAN_Filter_Init();
 //运行电机motor1~motor5
  	for(int i=2;i<=6;i++)
  	{
@@ -153,6 +169,22 @@ int main(void)
 	
 	//外骨骼初始位置	
   // ske_base_position();
+  for(int i=1; i<=6; i++)
+	{
+		if(i == 1)
+			LinearActuator_startRun_maxspeed_position(i, 0, 30);
+		
+		else if(i == 5)
+			motor_run(i);
+		// else if(i == 5)
+		// 	angle_close_loop_with_speed(i, 0, 30);
+		
+		else
+			angle_close_loop_with_speed(i, 0, 30);
+
+    HAL_Delay(50);
+	}
+
 	HAL_Delay(1000);
 #endif
 
@@ -192,13 +224,13 @@ int main(void)
   printf("Exciting traj experiment start!!!\r\n");
 #endif
 
-L_Pres_filter_1(10);
-for(int i=0; i<ADC_CHANNELS; i++)
-{
-  ADC_Pressure_InitValue[i] = ADC_Pressure_Value_filter[i];
-}
+// L_Pres_filter_1(10);
+// for(int i=0; i<ADC_CHANNELS; i++)
+// {
+//   ADC_Pressure_InitValue[i] = ADC_Pressure_Value_filter[i];
+// }
 
-ids830_compensation_PID_Init(ids830_pid);
+// ids830_compensation_PID_Init(ids830_pid);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -212,11 +244,12 @@ ids830_compensation_PID_Init(ids830_pid);
     // read_angle(2);
     // can_send(testbuf, 40);	
     // HAL_Delay(50);
-		// compensation_singleJoint_GF(5);
+		// compensation_singleJoint_GF(4);
+    compensation_singleJoint_GF_angle(5);
 
     // LinearActuator_read_position(1);
     // printf("LinearActuator_position%d: %.3f mm\r\n", 1, LinAcr_position_float);
-    LinearActuator_compensation_LOW();
+    // LinearActuator_compensation_LOW();
 #ifdef EXCITE_TRAJ_EXPERI	
 //		read_all_joint_message();
 //		for(int i=1; i<=6; i++)

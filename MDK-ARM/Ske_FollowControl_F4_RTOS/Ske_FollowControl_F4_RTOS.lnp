@@ -13,6 +13,7 @@
 "ske_followcontrol_f4_rtos\ids830can.o"
 "ske_followcontrol_f4_rtos\lkmoto.o"
 "ske_followcontrol_f4_rtos\sensors_reading.o"
+"ske_followcontrol_f4_rtos\protocol.o"
 "ske_followcontrol_f4_rtos\stm32f4xx_hal_adc.o"
 "ske_followcontrol_f4_rtos\stm32f4xx_hal_adc_ex.o"
 "ske_followcontrol_f4_rtos\stm32f4xx_ll_adc.o"

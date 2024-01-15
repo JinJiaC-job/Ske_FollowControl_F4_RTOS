@@ -27,9 +27,13 @@
 #include "stdlib.h"
 #include "lkmoto.h"
 #include "ids830can.h"
+#include "esp8266.h"
 CAN_TxHeaderTypeDef hCAN1_TxHeader; //CAN1发送消息
 CAN_RxHeaderTypeDef hCAN1_RxHeader; //CAN1接收消息
 CAN_FilterTypeDef sFilterConfig;//CANl滤波器
+
+uint8_t fingerAngle[5][8] = {0};
+uint8_t fingerPressure[5][8] = {0};
 
 /* USER CODE END 0 */
 
@@ -219,6 +223,59 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 					CAN_motor_accel[i] = aRxData[i];
 				}
 				// HAL_UART_Transmit(&huart1, CAN_motor_accel, 8, 5);
+			}
+			
+			// information from master hand skeleton
+			else if((hCAN1_RxHeader.StdId&0xFF0) == 0x110)
+			{
+				uint8_t packet_ch = (hCAN1_RxHeader.StdId&0x000F);
+				if(packet_ch < 5)
+				{
+					for(int i=0;i<8;i++)
+					{
+						fingerAngle[packet_ch][i] = aRxData[i];
+					}
+				}
+				else if(packet_ch > 6 && packet_ch < 12)
+				{
+					for(int i=0;i<8;i++)
+					{
+						fingerPressure[packet_ch-7][i] = aRxData[i];
+					}
+				}
+				else if(packet_ch == 12)//数据传输完成标志指令overover
+				{
+					for(int i=0;i<5;i++)//
+					{
+						for(int j=0;j<8;j++)
+						{
+							wifisendbuf[i][j] = fingerAngle[i][j];
+						}
+						for(int k=0;k<4;k++)
+						{
+							wifisendbuf[i][k+8] = fingerPressure[i][k];
+						}
+					}
+					for(int m=0;m<24;++m)
+					{
+						if(m<4)
+						{
+							wifisendbuf[5][m] = *(uint8_t *)(&LinAcr_position_float);
+							wifisendbuf[5][++m] = *((uint8_t *)(&LinAcr_position_float)+1);
+							wifisendbuf[5][++m] = *((uint8_t *)(&LinAcr_position_float)+2);
+							wifisendbuf[5][++m] = *((uint8_t *)(&LinAcr_position_float)+3);
+						}
+						else
+						{
+							wifisendbuf[5][m] = *(uint8_t *)(&motorAngle_float[(m-4)/4]);
+							wifisendbuf[5][++m] = *((uint8_t *)(&motorAngle_float[(m-4)/4])+1);
+							wifisendbuf[5][++m] = *((uint8_t *)(&motorAngle_float[(m-4)/4])+2);
+							wifisendbuf[5][++m] = *((uint8_t *)(&motorAngle_float[(m-4)/4])+3);
+						}
+					}
+					
+				}
+				// printf("Data from hand skeleton received successully!!!\r\n");
 			}
 			else
 				for(int i=0;i<8;i++)

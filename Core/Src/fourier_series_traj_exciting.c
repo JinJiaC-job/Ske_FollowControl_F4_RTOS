@@ -176,6 +176,83 @@ void compensation_ske_GF(void)
 	}
 }
 
+void compensation_singleJoint_GF_angle(int joint_id)
+{
+	//读取各关节角度、角速度
+	for(int cpt_id=1; cpt_id<=6; cpt_id++)
+	{
+		if(cpt_id == 1)
+		{
+			LinearActuator_read_position(cpt_id);//单位：mm
+			LinearActuator_read_CurrentandSpeed(cpt_id);
+			// pressure_SensorReading();
+		}
+		else
+		{
+			read_status2(cpt_id);//单位：du
+			read_angle(cpt_id);//单位：du
+		}
+		
+		switch (cpt_id)
+		{
+		case 1:
+			/* 直线电机；DH初始位置joint1：95.35mm */
+			q[cpt_id] = motorAngle_float[cpt_id] + 95.35;//单位：rad
+			qd[cpt_id] = 0;//单位：rad/s
+			qdd[cpt_id] = 0;
+			break;
+		case 4:
+			/* DH初始位置joint4：-pi/2 */
+			q[cpt_id] = motorAngle_float[cpt_id] * pi /180.0f - pi/2;//单位：rad
+			qd[cpt_id] = 0;//单位：rad/s
+			qdd[cpt_id] = 0;
+			break;
+		case 5:
+			/* DH初始位置joint5： pi/2 ；有8.2du的偏差*/
+			q[cpt_id] = motorAngle_float[cpt_id] * pi /180.0f + (90-8.2)/180*pi;//单位：rad
+			qd[cpt_id] = 0;//单位：rad/s
+			qdd[cpt_id] = 0;
+			break;
+		default:
+			q[cpt_id] = motorAngle_float[cpt_id] * pi /180.0f;//单位：rad
+			qd[cpt_id] = 0;//单位：rad/s
+			qdd[cpt_id] = 0;
+			break;
+		}
+	}
+	
+	compute_TAU(q, qd, qdd, joint_id);
+
+	// switch(joint_id)
+	// {
+	// 	case 5: 
+	// 		// if(q[joint_id] < -1*pi/9-8.2/180*pi || q[joint_id] > 11*pi/18-8.2/180*pi)
+	// 		if(q[joint_id] < (-20-8.2)/180*pi || q[joint_id] > (210-8.2)/180*pi)
+	// 		{
+	// 			torque_close_loop(joint_id, -TAU[joint_id]);
+	// 		}
+
+	// 		else
+	// 			torque_close_loop(joint_id, TAU[joint_id]);
+	// 		// printf("TAU%d=%.3f\r\n", joint_id, TAU[joint_id]);
+	// 		break;
+	// }
+	if(joint_id == 4)
+		TAU[joint_id] = -TAU[joint_id];
+
+	// torque_close_loop(joint_id, TAU[joint_id]);
+	// for(int i=1; i<=6; i++)
+	// {
+	// 	printf("q%d=%.3f\r\n", i, q[i]);
+	// }
+	// printf("angle%d=%.3f\r\n", joint_id, motorAngle_float[joint_id]);
+	printf("q%d=%.3f\t", joint_id, q[joint_id]);
+	printf("qd%d=%.3f\t", joint_id, motor_speed_float[joint_id]);
+	printf("current%d=%.3f\t", joint_id, motor_current_float[joint_id]);
+	printf("TAU%d=%.3f\r\n", joint_id, TAU[joint_id]);
+}
+
+
 void compensation_singleJoint_GF(int joint_id)
 {
 	//读取各关节角度、角速度
@@ -237,13 +314,13 @@ void compensation_singleJoint_GF(int joint_id)
 	// 		// printf("TAU%d=%.3f\r\n", joint_id, TAU[joint_id]);
 	// 		break;
 	// }
-	torque_close_loop(joint_id, TAU[joint_id]);
+	// torque_close_loop(joint_id, TAU[joint_id]);
 	// for(int i=1; i<=6; i++)
 	// {
 	// 	printf("q%d=%.3f\r\n", i, q[i]);
 	// }
 	// printf("angle%d=%.3f\r\n", joint_id, motorAngle_float[joint_id]);
-	printf("q%d=%.3f\r\n", joint_id, q[joint_id]);
+	printf("q%d=%.3f\t", joint_id, q[joint_id]);
 	printf("TAU%d=%.3f\r\n", joint_id, TAU[joint_id]);
 }
 

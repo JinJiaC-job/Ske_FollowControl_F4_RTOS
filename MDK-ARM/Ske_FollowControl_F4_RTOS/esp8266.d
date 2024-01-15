@@ -40,4 +40,5 @@ ske_followcontrol_f4_rtos/esp8266.o: ..\Core\Src\esp8266.c \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   ..\Core\Inc\usart.h ..\Core\Inc\main.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
-  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h ..\Core\Inc\tim.h
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h ..\Core\Inc\tim.h \
+  ..\Core\Inc\lkmoto.h ..\Core\Inc\can.h

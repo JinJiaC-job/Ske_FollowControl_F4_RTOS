@@ -44,4 +44,5 @@ ske_followcontrol_f4_rtos/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Core\Inc\Sensors_reading.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
   ..\Core\Inc\fourier_series_traj_exciting.h ..\Core\Inc\esp8266.h \
-  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  ..\Core\Inc\protocol.h

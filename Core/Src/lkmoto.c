@@ -46,16 +46,16 @@ void can_send(uint8_t *buf, uint8_t id)
 	HAL_CAN_AddTxMessage(&hcan1, &hCAN1_TxHeader, buf, &txMailBox);
     while(HAL_CAN_AddTxMessage(&hcan1, &hCAN1_TxHeader, buf, &txMailBox) != HAL_OK)
 	{
-		printf("TxMsg Failed!!");
-    	HAL_Delay(100);
+		// printf("TxMsg Failed!!");
+    	// HAL_Delay(100);
 	}
-	printf("\nSend Tx Message Success!!Tx_Mail:%d\r\n", txMailBox);
-	uint8_t i;
-	for(i=0; i<LEN; i++)
-    {
-    	printf("%x ", buf[i]);
-    }
-	printf("\r\n");
+	// printf("\nSend Tx Message Success!!Tx_Mail:%d\r\n", txMailBox);
+	// uint8_t i;
+	// for(i=0; i<LEN; i++)
+    // {
+    // 	printf("%x ", buf[i]);
+    // }
+	// printf("\r\n");
 }
 
 //消息处理函数 名称 命令数据
@@ -350,7 +350,7 @@ void write_current_position_to_rom(uint8_t id){
 
 void read_angle(uint8_t id){
     uint8_t buf[LEN] = {0x92, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-	int64_t motorAngle;
+	int64_t motorAngle=0;
 
     can_send(buf, id);
 	Delay_us(600);
@@ -360,11 +360,11 @@ void read_angle(uint8_t id){
 	}
 	switch(id)
 	{
-		case 6: motorAngle_float[id] = (float)((int32_t)motorAngle/1000.0); break;
-		case 5: motorAngle_float[id] = (float)((int32_t)motorAngle/800.0); break;
-		case 4: motorAngle_float[id] = -(float)((int32_t)motorAngle/3600.0); break;//joint4 DH angle = - meassured angle;
-		case 3: motorAngle_float[id] = (float)((int32_t)motorAngle/800.0); break;
-		case 2: motorAngle_float[id] = (float)((int32_t)motorAngle/3600.0); break;
+		case 6: motorAngle_float[id] = (float)((int32_t)motorAngle/1000.0f); break;
+		case 5: motorAngle_float[id] = (float)((int32_t)motorAngle/800.0f); break;
+		case 4: motorAngle_float[id] = -(float)((int32_t)motorAngle/3600.0f); break;//joint4 DH angle = - meassured angle;
+		case 3: motorAngle_float[id] = (float)((int32_t)motorAngle/800.0f); break;
+		case 2: motorAngle_float[id] = (float)((int32_t)motorAngle/3600.0f); break;
 		default:printf("id error\n"); break;
 	}	
 //		printf("motor_angle%d: %.3fdu\r\n", id, motorAngle_float);

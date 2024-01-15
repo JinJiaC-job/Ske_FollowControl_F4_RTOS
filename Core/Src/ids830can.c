@@ -105,7 +105,7 @@ void LinearActuator_read_position(uint8_t id)
 		*((uint8_t *)(&LinAcr_position)+2) = ids830_position[4];
 		*((uint8_t *)(&LinAcr_position)+3) = ids830_position[3];
 //	return  LinAcr_position;
-    LinAcr_position_float = (int32_t)LinAcr_position/2500.0;
+    LinAcr_position_float = (int32_t)LinAcr_position/2500.0f;
 //		HAL_UART_Transmit(&huart1, (uint8_t*)&LinAcr_position, 4, 5);
 //	  printf("LinearActuator_position%d: %.3f mm\r\n", id, LinAcr_position_float);
 //	}

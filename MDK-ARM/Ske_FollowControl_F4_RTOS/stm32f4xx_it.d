@@ -38,4 +38,5 @@ ske_followcontrol_f4_rtos/stm32f4xx_it.o: ..\Core\Src\stm32f4xx_it.c \
   ..\Core\Inc\stm32f4xx_it.h ..\Core\Inc\usart.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
   D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h ..\Core\Inc\tim.h
+  D:\APPs\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h ..\Core\Inc\tim.h \
+  ..\Core\Inc\protocol.h

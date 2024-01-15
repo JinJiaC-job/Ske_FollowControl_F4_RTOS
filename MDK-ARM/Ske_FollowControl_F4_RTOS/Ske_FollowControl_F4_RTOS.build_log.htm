@@ -22,33 +22,20 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 e:\git_repo\my_repo\Ske_FollowControl_F4_RTOS\MDK-ARM\Ske_FollowControl_F4_RTOS.uvprojx
-Project File Date:  12/26/2023
+Project File Date:  01/04/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'D:\APPs\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Ske_FollowControl_F4_RTOS'
-../Core/Src/Sensors_reading.c(224): warning: using floating point absolute value function 'fabs' when argument is of integer type [-Wabsolute-value]
-                LinearActuator_startRun_maxspeed_position(1, -2+current_position, 5*fabs(-5)/0.05);
-                                                                                    ^
-../Core/Src/Sensors_reading.c(224): note: use function 'abs' instead
-                LinearActuator_startRun_maxspeed_position(1, -2+current_position, 5*fabs(-5)/0.05);
-                                                                                    ^~~~
-                                                                                    abs
-../Core/Src/Sensors_reading.c(224): note: include the header <stdlib.h> or explicitly provide a declaration for 'abs'
-../Core/Src/Sensors_reading.c(241): warning: using floating point absolute value function 'fabs' when argument is of integer type [-Wabsolute-value]
-                LinearActuator_startRun_maxspeed_position(1, 1+current_position, 5*fabs(5)/0.05);
-                                                                                   ^
-../Core/Src/Sensors_reading.c(241): note: use function 'abs' instead
-                LinearActuator_startRun_maxspeed_position(1, 1+current_position, 5*fabs(5)/0.05);
-                                                                                   ^~~~
-                                                                                   abs
-../Core/Src/Sensors_reading.c(241): note: include the header <stdlib.h> or explicitly provide a declaration for 'abs'
-2 warnings generated.
-compiling Sensors_reading.c...
+../Core/Src/fourier_series_traj_exciting.c(428): warning: format specifies type 'double' but the argument has type 'float *' [-Wformat]
+                , LinAcr_position_float, LinAcr_current_float, LinAcr_speed_float, ADC_Pressure_Value
+                                                                                   ^~~~~~~~~~~~~~~~~~
+1 warning generated.
+compiling fourier_series_traj_exciting.c...
 linking...
-Program Size: Code=26456 RO-data=1164 RW-data=304 ZI-data=2840  
+Program Size: Code=180896 RO-data=1164 RW-data=300 ZI-data=3260  
 FromELF: creating hex file...
-"Ske_FollowControl_F4_RTOS\Ske_FollowControl_F4_RTOS.axf" - 0 Error(s), 2 Warning(s).
+"Ske_FollowControl_F4_RTOS\Ske_FollowControl_F4_RTOS.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -72,7 +59,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:08
 </pre>
 </body>
 </html>

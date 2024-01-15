@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "usart.h"
+#include "protocol.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -265,11 +266,13 @@ void USART1_IRQHandler(void)
 void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
-
+	uint8_t dr = __HAL_UART_FLUSH_DRREGISTER(&huart3);
+	protocol_data_recv(&dr, 1);
+	receiving_process();
   /* USER CODE END USART3_IRQn 0 */
   HAL_UART_IRQHandler(&huart3);
   /* USER CODE BEGIN USART3_IRQn 1 */
-	HAL_UART_Receive_IT(&huart3, &temp_rx, 1);
+	// HAL_UART_Receive_IT(&huart3, &temp_rx, 1);
   /* USER CODE END USART3_IRQn 1 */
 }
 

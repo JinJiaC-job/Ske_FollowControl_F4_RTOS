@@ -39,6 +39,9 @@ extern CAN_TxHeaderTypeDef hCAN1_TxHeader; //CAN1发送消息
 extern CAN_RxHeaderTypeDef hCAN1_RxHeader; //CAN1接收消息	
 extern CAN_FilterTypeDef sFilterConfig;//CANl滤波器
 
+extern uint8_t fingerAngle[5][8];
+extern uint8_t fingerPressure[5][8];
+
 void CAN_Filter_Init(void);
 
 /* USER CODE END Private defines */
